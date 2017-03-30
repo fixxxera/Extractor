@@ -23,7 +23,6 @@ workbook = xlrd.open_workbook('Missing Prices -- 2017-03-24 -- By Company.xlsx',
 worksheet = workbook.sheet_by_index(0)
 first_row = []
 
-
 def xldate_to_datetime(xldate):
     try:
         tempDate = datetime.datetime(1900, 1, 1)
