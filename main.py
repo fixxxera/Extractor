@@ -19,9 +19,10 @@ ncl = []
 azamara = []
 not_null = []
 new = []
-workbook = xlrd.open_workbook('Missing Prices -- 2017-03-24 -- By Company.xlsx', on_demand=True)
+workbook = xlrd.open_workbook('Missing Prices -- 2017-06-16 -- By Company.xlsx', on_demand=True)
 worksheet = workbook.sheet_by_index(0)
 first_row = []
+
 
 def xldate_to_datetime(xldate):
     try:
@@ -34,7 +35,7 @@ def xldate_to_datetime(xldate):
     except ValueError:
         old_value = xldate.split('/')
         new_value = (
-        datetime.date(int(old_value[2]), int(old_value[0]), int(old_value[1])) - datetime.date(1899, 12, 30)).days
+            datetime.date(int(old_value[2]), int(old_value[0]), int(old_value[1])) - datetime.date(1899, 12, 30)).days
         tempDate = datetime.datetime(1900, 1, 1)
         deltaDays = datetime.timedelta(days=int(new_value))
         secs = (int((new_value % 1) * 86400) - 60)
@@ -57,7 +58,6 @@ for row in range(1, worksheet.nrows):
 current_ship = ''
 current_dest = ''
 for d in data:
-    # d)
     if d['dest'] != '':
         current_dest = d['dest']
     if current_ship == '':
@@ -171,7 +171,7 @@ for d in data:
                 orbitz.append(
                     [current_ship, start_date, return_date, interior, oceanview, balcony, suite, current_dest])
 towrite = []
-workbook = xlrd.open_workbook('2017-3-25- Costa Cruises.xlsx', on_demand=True)
+workbook = xlrd.open_workbook('2017-6-17- Costa Cruises.xlsx', on_demand=True)
 worksheet = workbook.sheet_by_index(0)
 first_row = []
 for col in range(worksheet.ncols):
@@ -202,7 +202,7 @@ for d in data:
         tmp = [d['VesselName'], d['SailDate'], d['ReturnDate'], inside,
                oceanview, balcony, suite, d['DestinationCode'], d['DestinationName']]
         costa.append(tmp)
-workbook = xlrd.open_workbook('2017-3-25- Princess Cruises.xlsx', on_demand=True)
+workbook = xlrd.open_workbook('2017-6-17- Princess Cruises.xlsx', on_demand=True)
 worksheet = workbook.sheet_by_index(0)
 first_row = []
 for col in range(worksheet.ncols):
@@ -230,7 +230,7 @@ for d in data:
         tmp = [d['VesselName'], d['SailDate'], d['ReturnDate'], inside,
                oceanview, balcony, suite, d['DestinationCode'], d['DestinationName'], d['ItineraryID'].strip()]
         princess.append(tmp)
-workbook = xlrd.open_workbook('2017-3-25- Holland America.xlsx', on_demand=True)
+workbook = xlrd.open_workbook('2017-6-17- Holland America.xlsx', on_demand=True)
 worksheet = workbook.sheet_by_index(0)
 first_row = []
 for col in range(worksheet.ncols):
@@ -258,7 +258,7 @@ for d in data:
         tmp = [d['VesselName'], d['SailDate'], d['ReturnDate'], inside,
                oceanview, balcony, suite, d['DestinationCode'], d['DestinationName']]
         hal.append(tmp)
-workbook = xlrd.open_workbook('2017-3-25- Carnival US.xlsx', on_demand=True)
+workbook = xlrd.open_workbook('2017-6-17- Carnival US.xlsx', on_demand=True)
 worksheet = workbook.sheet_by_index(0)
 first_row = []
 for col in range(worksheet.ncols):
@@ -286,7 +286,7 @@ for d in data:
         tmp = [d['VesselName'], d['SailDate'], d['ReturnDate'], inside,
                oceanview, balcony, suite, d['DestinationCode'], d['DestinationName']]
         carnival.append(tmp)
-workbook = xlrd.open_workbook('2017-3-25- Carnival Australia.xlsx', on_demand=True)
+workbook = xlrd.open_workbook('2017-6-17- Carnival Australia.xlsx', on_demand=True)
 worksheet = workbook.sheet_by_index(0)
 first_row = []
 for col in range(worksheet.ncols):
@@ -314,7 +314,7 @@ for d in data:
         tmp = [d['VesselName'], d['SailDate'], d['ReturnDate'], inside,
                oceanview, balcony, suite, d['DestinationCode'], d['DestinationName']]
         carnival_au.append(tmp)
-workbook = xlrd.open_workbook('2017-3-25- Cunard Cruises No skipped.xlsx', on_demand=True)
+workbook = xlrd.open_workbook('2017-6-17- Cunard Cruises.xlsx', on_demand=True)
 worksheet = workbook.sheet_by_index(0)
 first_row = []
 for col in range(worksheet.ncols):
@@ -345,7 +345,7 @@ for d in data:
         tmp = [d['VesselName'], d['SailDate'], d['ReturnDate'], inside,
                oceanview, balcony, suite, d['DestinationCode'], d['DestinationName']]
         cunard.append(tmp)
-workbook = xlrd.open_workbook('2017-3-25- RSSC.xlsx', on_demand=True)
+workbook = xlrd.open_workbook('2017-6-17- RSSC.xlsx', on_demand=True)
 worksheet = workbook.sheet_by_index(0)
 first_row = []
 for col in range(worksheet.ncols):
@@ -376,7 +376,7 @@ for d in data:
         tmp = [d['VesselName'], d['SailDate'], d['ReturnDate'], inside,
                oceanview, balcony, suite, d['DestinationCode'], d['DestinationName']]
         rss.append(tmp)
-workbook = xlrd.open_workbook('2017-3-25- Oceania Cruises.xlsx', on_demand=True)
+workbook = xlrd.open_workbook('2017-6-17 Non - Cruise only price Oceania Cruises.xlsx', on_demand=True)
 worksheet = workbook.sheet_by_index(0)
 first_row = []
 for col in range(worksheet.ncols):
@@ -407,7 +407,7 @@ for d in data:
         tmp = [d['VesselName'], d['SailDate'], d['ReturnDate'], inside,
                oceanview, balcony, suite, d['DestinationCode'], d['DestinationName']]
         oceania.append(tmp)
-workbook = xlrd.open_workbook('2017-3-25- Royal Caribbean.xlsx', on_demand=True)
+workbook = xlrd.open_workbook('2017-6-17- Royal Caribbean.xlsx', on_demand=True)
 worksheet = workbook.sheet_by_index(0)
 first_row = []
 for col in range(worksheet.ncols):
@@ -438,7 +438,7 @@ for d in data:
         tmp = [d['VesselName'], d['SailDate'], d['ReturnDate'], inside,
                oceanview, balcony, suite, d['DestinationCode'], d['DestinationName']]
         royal.append(tmp)
-workbook = xlrd.open_workbook('2017-3-25- Norwegian Cruise Line.xlsx', on_demand=True)
+workbook = xlrd.open_workbook('2017-6-17- Norwegian Cruise Line.xlsx', on_demand=True)
 worksheet = workbook.sheet_by_index(0)
 first_row = []
 for col in range(worksheet.ncols):
@@ -466,7 +466,7 @@ for d in data:
         tmp = [d['VesselName'], d['SailDate'], d['ReturnDate'], inside,
                oceanview, balcony, suite, d['DestinationCode'], d['DestinationName']]
         ncl.append(tmp)
-workbook = xlrd.open_workbook('2017-3-25- Celebrity Cruises.xlsx', on_demand=True)
+workbook = xlrd.open_workbook('2017-6-17- Celebrity Cruises.xlsx', on_demand=True)
 worksheet = workbook.sheet_by_index(0)
 first_row = []
 for col in range(worksheet.ncols):
@@ -494,7 +494,7 @@ for d in data:
         tmp = [d['VesselName'], d['SailDate'], d['ReturnDate'], inside,
                oceanview, balcony, suite, d['DestinationCode'], d['DestinationName']]
         celebrity.append(tmp)
-workbook = xlrd.open_workbook('2017-3-25- Azamara Club Cruises.xlsx', on_demand=True)
+workbook = xlrd.open_workbook('2017-6-17- Azamara Club Cruises.xlsx', on_demand=True)
 worksheet = workbook.sheet_by_index(0)
 first_row = []
 for col in range(worksheet.ncols):
@@ -541,7 +541,7 @@ def calculate_days(sail_date_param, number_of_nights_param):
 def convert_to_number(param):
     old_value = param.split('/')
     new_value = (
-    datetime.date(int(old_value[2]), int(old_value[0]), int(old_value[1])) - datetime.date(1899, 12, 30)).days
+        datetime.date(int(old_value[2]), int(old_value[0]), int(old_value[1])) - datetime.date(1899, 12, 30)).days
     return new_value
 
 
@@ -743,7 +743,10 @@ for o in orbitz:
             sailing.append(['Princess Cruises', o[7], o[0], o[1], o[2], o[3], o[4], o[5], o[6]])
             sailing.append(['cyan', 'cyan', 'cyan', 'cyan'])
             towrite.append(sailing)
-    elif "Amsterdam" in o[0] or 'Eurodam' in o[0] or 'Koningsdam' in o[0] or 'Maasdam' in o[0] or 'Nieuw Amsterdam' in o[0] or 'Noordam' in o[0] or 'Oosterdam' in o[0] or 'Prinsendam' in o[0] or 'Rotterdam' in o[0] or 'Veendam' in o[0] or 'Volendam' in o[0] or 'Westerdam' in o[0] or 'Zaandam' in o[0] or 'Zuiderdam' in o[0]:
+    elif "Amsterdam" in o[0] or 'Eurodam' in o[0] or 'Koningsdam' in o[0] or 'Maasdam' in o[0] or 'Nieuw Amsterdam' in \
+            o[0] or 'Noordam' in o[0] or 'Oosterdam' in o[0] or 'Prinsendam' in o[0] or 'Rotterdam' in o[
+        0] or 'Veendam' in o[0] or 'Volendam' in o[0] or 'Westerdam' in o[0] or 'Zaandam' in o[0] or 'Zuiderdam' in o[
+        0]:
         sailing = []
         colors = []
         for c in hal:
@@ -1119,7 +1122,7 @@ for o in orbitz:
         sailing = []
         colors = []
         for c in celebrity:
-            if o[0] == c[0] and o[1] == c[1] and o[2] == c[2]:
+            if o[0].split()[1] == c[0] and o[1] == c[1] and o[2] == c[2]:
                 found = True
                 dc = ''
                 dn = ''
@@ -1297,7 +1300,8 @@ for o in orbitz:
             sailing.append(['Norwegian', o[7], o[0], o[1], o[2], o[3], o[4], o[5], o[6]])
             sailing.append(['cyan', 'cyan', 'cyan', 'cyan'])
             towrite.append(sailing)
-    elif o[0] == 'Regatta' or o[0] == 'Insignia' or o[0] == 'Sirena' or o[0] == 'Marina' or o[0] == 'Nautica' or o[0] == 'Riviera':
+    elif o[0] == 'Regatta' or o[0] == 'Insignia' or o[0] == 'Sirena' or o[0] == 'Marina' or o[0] == 'Nautica' or o[
+        0] == 'Riviera':
         sailing = []
         colors = []
         for c in oceania:
